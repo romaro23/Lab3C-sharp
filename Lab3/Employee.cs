@@ -95,7 +95,6 @@ namespace Lab3
                 using (Stream fStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     bf.Serialize(fStream, this);
-                    fStream.Close();
                 }
                 
                 return true;
@@ -123,7 +122,6 @@ namespace Lab3
                     salary = temp.salary;
                     diplomas = temp.diplomas;
                     experiences = temp.experiences;
-                    fStream.Close();
                 }
                 return true;
             }
@@ -142,7 +140,6 @@ namespace Lab3
                 using (Stream fStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     bf.Serialize(fStream, obj);
-                    fStream.Close();
                 }
                 return true;
             }
@@ -161,7 +158,6 @@ namespace Lab3
                 using (Stream fStream = File.OpenRead(filename))
                 {
                     obj = (Employee)bf.Deserialize(fStream);
-                    fStream.Close();
                 }
                 
                 return true;
